@@ -1,8 +1,8 @@
 {
-  "name": "crud-api",
+  "name": "school-nika",
   "version": "1.0.0",
   "main": "dist/server.js",
-  "repository": "https://github.com/fapss/crud-api.git",
+  "repository": "https://github.com/Sir-Altruist/schoolnika.git",
   "author": "Sir_Altruist <eshooluwasegun98@gmail.com>",
   "license": "MIT",
   "scripts": {
