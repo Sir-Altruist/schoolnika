@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { ExceptionError, jsonResponse } from "@libs/index";
-import { Blog } from "@services/index";
-import { ErrorResponse } from "@interfaces/index";
+import { ExceptionError, jsonResponse } from "../../libs";
+import { Blog } from "../../services";
+import { ErrorResponse } from "../../interfaces";
 
 
 const exceptions: ExceptionError = new ExceptionError();

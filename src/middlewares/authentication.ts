@@ -1,6 +1,6 @@
-import { Logger, jsonResponse } from "@libs/index";
+import { Logger, jsonResponse } from "../libs";
 import { Response, Request, NextFunction } from "express";
-import { Tools } from "@utils/index";
+import { Tools } from "../utils";
 
 async function authentication(req: Request, res: Response, next: NextFunction) {
     try {

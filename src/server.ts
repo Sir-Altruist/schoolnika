@@ -1,9 +1,9 @@
 import express, { Express, Response } from "express";
-import { env } from "@config/index";
+import { env } from "./config";
 import bodyParser from "body-parser";
 import cors from "cors";
-import routes from "@routes/index";
-import { Logger } from "@libs/index";
+import routes from "./routes";
+import { Logger } from "./libs";
 
 const app: Express = express();
 const port = env.PORT || 3000;

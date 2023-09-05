@@ -1,4 +1,4 @@
-import { User, Blog } from "@models/index";
+import { User, Blog } from "../models";
 
 export const create = async (payload): Promise<object> => {
     return await User.create(payload);

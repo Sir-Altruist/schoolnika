@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Blog } from "@models/index";
+import { Blog } from "../models";
 
 export const create = async (payload): Promise<object> => {
     return await Blog.create(payload);

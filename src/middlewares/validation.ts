@@ -1,6 +1,6 @@
 import {  NextFunction, Request, Response} from "express";
-import { ExceptionError, jsonResponse } from "@libs/index";
-import * as Validation from "@validations/index";
+import { ExceptionError, jsonResponse } from "../libs";
+import * as Validation from "../validations";
 
 const exceptions: ExceptionError = new ExceptionError();
 const userMiddleware = (req: Request, res: Response, next: NextFunction) => {

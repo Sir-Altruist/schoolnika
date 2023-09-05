@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { UserControllers } from "@controllers/index";
-import { SchemaValidation, authentication } from "@middlewares/index";
+import { UserControllers } from "../controllers";
+import { SchemaValidation, authentication } from "../middlewares";
 
 const router = Router();
 

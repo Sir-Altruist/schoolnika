@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { env } from "@config/index";
-import { ExceptionError } from "@libs/index";
+import { env } from "../config";
+import { ExceptionError } from "../libs";
 import bcrypt from "bcryptjs";
 
 

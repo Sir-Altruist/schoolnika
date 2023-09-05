@@ -1,7 +1,7 @@
 import { DataTypes} from "sequelize";
-import { db } from "@datasources/index";
+import { db } from "../datasources";
 import bcrypt from "bcryptjs";
-import { UserModel, UserRequestBody } from "@interfaces/index";
+import { UserModel, UserRequestBody } from "../interfaces";
 import blog from "./blog";
 
 const user = db.define<UserModel, UserRequestBody>(

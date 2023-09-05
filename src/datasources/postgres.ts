@@ -1,8 +1,8 @@
-import { env } from "@config/index";
+import { env } from "../config";
 import { Sequelize } from "sequelize";
 import pg from "pg";
-import { Logger } from "@libs/index";
-import { variables } from "@config/index";
+import { Logger } from "../libs";
+import { variables } from "../config";
 
 const { db_name, db_username, db_host, db_password } = variables;
 

@@ -1,4 +1,4 @@
-import { ErrorResponse } from "@interfaces/index";
+import { ErrorResponse } from "../interfaces";
 
 class ExceptionError {
     public response: ErrorResponse;

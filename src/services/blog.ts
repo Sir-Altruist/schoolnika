@@ -1,7 +1,7 @@
-import { Blog } from "@repositories/index";
-import { ExceptionError } from "@libs/index";
-import { cache } from "@datasources/index";
-import { ErrorResponse } from "@interfaces/index";
+import { Blog } from "../repositories";
+import { ExceptionError } from "../libs";
+import { cache } from "../datasources";
+import { ErrorResponse } from "../interfaces";
 
 const exceptions: ExceptionError = new ExceptionError();
 export const addPost = async (

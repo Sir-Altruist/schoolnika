@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { db } from "@datasources/index";
+import { db } from "../datasources";
 
 const blog = db.define(
     "blog",

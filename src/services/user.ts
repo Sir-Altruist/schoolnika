@@ -1,7 +1,7 @@
-import { User } from "@repositories/index";
-import { ExceptionError } from "@libs/index";
-import { ErrorResponse, ResponseType, UserRequestBody } from "@interfaces/index";
-import { Tools } from "@utils/index";
+import { User } from "../repositories";
+import { ExceptionError } from "../libs";
+import { ErrorResponse, ResponseType, UserRequestBody } from "../interfaces";
+import { Tools } from "../utils";
 
 
 

@@ -1,5 +1,5 @@
-import { env } from "@config/index";
-import { Logger } from "@libs/index";
+import { env } from "../config";
+import { Logger } from "../libs";
 import { createClient } from "redis";
 
 const redisClient = env.NODE_ENV === "production" ? createClient({

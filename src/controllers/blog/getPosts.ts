@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { Blog } from "@services/index";
-import { ExceptionError, jsonResponse } from "@libs/index";
-import { ErrorResponse } from "@interfaces/index";
+import { Blog } from "../../services";
+import { ExceptionError, jsonResponse } from "../../libs";
+import { ErrorResponse } from "../../interfaces";
 
 const exceptions: ExceptionError = new ExceptionError();
 const fetchAllPosts = async (

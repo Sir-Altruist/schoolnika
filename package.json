@@ -1,12 +1,12 @@
 {
-  "name": "school-nika",
+  "name": "schoolnika",
   "version": "1.0.0",
   "main": "dist/server.js",
   "repository": "https://github.com/Sir-Altruist/schoolnika.git",
   "author": "Sir_Altruist <eshooluwasegun98@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node -r ./tsconfig-paths-bootstrap.js ./dist/server.js",
+    "start": "node ./dist/server.js",
     "dev": "cross-env nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts",
     "test": "mocha -r ts-node/register --extension ts --exit --timeout 10000 '__tests__/**/*.ts'",
     "build": "rimraf dist && tsc",
@@ -28,7 +28,6 @@
     "*.{ts}": "eslint --cache --fix",
     "*.{ts,md}": "prettier --write"
   },
-  "type": "module",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
