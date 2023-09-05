@@ -16,6 +16,9 @@ const postgresClient = new Sequelize(
         logging: false,
         port: env.NODE_ENV !== "production" && parseInt(env.DB_PORT),
         dialectModule: pg,
+        dialectOptions: {
+            ssl: env.NODE_ENV === "production" ? true : false
+        },
         pool: {
             max: 2,
             min: 0,
