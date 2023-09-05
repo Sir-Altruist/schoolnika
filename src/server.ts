@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Response } from "express";
 import { env } from "@config/index";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -15,8 +15,8 @@ app.use(cors());
 app.use(bodyParser.json({ limit: "200mb" }));
 app.use(bodyParser.urlencoded({ limit: "200mb", extended: true }));
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
+app.get("/", (_, res: Response) => {
+    res.send("Schoolnika Interview API");
 });
 app.use("/api", routes);
 

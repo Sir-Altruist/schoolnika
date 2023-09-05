@@ -1,1 +1,5 @@
-export { default as env } from "./env";
+import * as variables from "./variables";
+import env from "./env";
+
+export { variables, env };
+

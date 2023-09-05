@@ -2,16 +2,19 @@ import { env } from "@config/index";
 import { Sequelize } from "sequelize";
 import pg from "pg";
 import { Logger } from "@libs/index";
+import { variables } from "@config/index";
+
+const { db_name, db_username, db_host, db_password } = variables;
 
 const postgresClient = new Sequelize(
-    env.DB_NAME,
-    env.DB_USERNAME,
-    env.DB_PASSWORD,
+    db_name,
+    db_username,
+    db_password,
     {
-        host: env.DB_HOST,
+        host: db_host,
         dialect: "postgres",
         logging: false,
-        port: parseInt(env.DB_PORT),
+        port: env.NODE_ENV !== "production" && parseInt(env.DB_PORT),
         dialectModule: pg,
         pool: {
             max: 2,
