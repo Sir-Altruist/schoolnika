@@ -16,8 +16,7 @@ const updateBlogPost = async (
         return jsonResponse(res, {
             statusCode: 200,
             data: {
-                message: "Successfully updated blog post",
-                blog
+                details: blog
             }
         });
     } catch (error) {

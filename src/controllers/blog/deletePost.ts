@@ -12,11 +12,11 @@ const deleteBlogPost = async (
     try {
         const { id } = req.params;
 
-        await Blog.deletePost(Number(id));
+        const post = await Blog.deletePost(Number(id));
         return jsonResponse(res, {
             statusCode: 200,
             data: {
-                message: "Successfully deleted blog post"
+                details: post === 1 ? "Successfully deleted post" : post
             }
         });
     } catch (error) {

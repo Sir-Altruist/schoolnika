@@ -1,7 +1,7 @@
-import userSchema from "./user";
-import blogSchema from "./blog";
+import * as UserSchema from "./user";
+import BlogSchema from "./blog";
 
 export {
-    userSchema,
-    blogSchema
+    UserSchema,
+    BlogSchema
 };

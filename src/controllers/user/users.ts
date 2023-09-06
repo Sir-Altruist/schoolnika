@@ -10,7 +10,7 @@ const users = async (
     res: Response
 ): Promise<Response | ErrorResponse> => {
     try {
-        const user = await User.findAlUsers();
+        const user = await User.findAllUsers();
         return jsonResponse(res, {
             statusCode: 200,
             data: user

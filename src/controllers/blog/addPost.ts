@@ -24,7 +24,6 @@ const createBlogPost = async (
         return jsonResponse(res, {
             statusCode: 201,
             data: {
-                message: "Successfully created blog post",
                 details: blog 
             }
         });

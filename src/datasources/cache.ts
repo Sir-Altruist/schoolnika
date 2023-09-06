@@ -2,13 +2,14 @@ import { env } from "../config";
 import { Logger } from "../libs";
 import { createClient } from "redis";
 
-const redisClient = createClient({
+const redisClient = env.NODE_ENV === "production" ? createClient({
     url: env.REDIS_HOST_PROD 
-    // : socket: {
-    //     host: env.REDIS_HOST,
-    //     port: parseInt(env.REDIS_PORT)
-    // },
 
+}) : createClient({
+    socket: {
+        host: env.REDIS_HOST,
+        port: parseInt(env.REDIS_PORT)
+    }
 });
 
 redisClient

@@ -41,6 +41,6 @@ export const findUser = async (payload): Promise<object | ErrorResponse> => {
     return await User.findOne(payload);
 };
 
-export const findAlUsers = async (): Promise<object> => {
+export const findAllUsers = async (): Promise<object> => {
     return await User.findAll();
 };

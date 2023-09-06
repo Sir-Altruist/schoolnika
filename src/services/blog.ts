@@ -78,15 +78,13 @@ export const updatePost = async (
 export const deletePost = async (
     id: number
 ): Promise<number | ErrorResponse> => {
-    // checks and get post from cache
-    const cachedData = JSON.parse(await cache.get(`post:${id}`));
-    if (!cachedData || cachedData === null) {
-        const post = await Blog.find(id);
-        if (!post || post === null)
-            return exceptions.NotFoundError("Post does not exist");
+    if(!id || typeof id !== "number"){
+        return exceptions.UnauthorizedError("Invalid user id");
     }
+    const post = await Blog.find(id);
+    if (!post || post === null)
+        return exceptions.NotFoundError("Post not found");
 
-    //remove post from cache
     await cache.del(`post:${id}`);
     await cache.del("posts");
     return await Blog.remove(id);
