@@ -13,7 +13,6 @@ router.get("/:id", fetchSinglePost);
 
 
 //private routes
-router.get("/user/:id", authentication, fetchSinglePost);
 router.patch("/:id", authentication, updateBlogPost);
 router.delete("/:id", authentication, deleteBlogPost);
 router.post("/:id", authentication, blogMiddleware, createBlogPost);
