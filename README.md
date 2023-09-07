@@ -8,3 +8,5 @@ Check [here](https://app.swaggerhub.com/apis/Altruistic/Schoolnika/1.0.0) for do
 
 2. Due to the restriction in same **route** naming in swagger API, I had to use different **id** name on for the documenatation. It is just **id** in the codebase.
 
+3. Kindly put token generated for logged-in user in the **Authorize** modal at the top in order to access protected routes.
+
