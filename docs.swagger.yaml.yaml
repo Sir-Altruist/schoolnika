@@ -1,0 +1,261 @@
+openapi: 3.0.3
+info:
+  title: Schoolnika
+  description: |-
+    This is the documentation for Schoolnika interview endpoints
+    - [Schoolnika Github Repository](https://github.com/Sir-Altruist/schoolnika)
+
+  contact:
+    email: devaltruist@gmail.com
+
+  version: 1.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/Altruistic/Schoolnika/1.0.0
+  - url: https://schoolnika-jzku.onrender.com/api
+tags:
+  - name: User Authentication
+    description: Endpoints for user authentication and authorization
+paths:
+# SignUp
+  /auth/signup:
+    post:
+      tags:
+        - User Authentication
+      summary: Register user
+      description: This endpoint will add user to database
+      operationId: signUp
+      requestBody:
+        content:
+          application/json:
+            schema:
+             $ref: "#/components/schemas/SignUp"
+      responses:
+        "201":
+          description: Successful Operation
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+
+# login user
+  /auth/signin:
+    post:
+      tags:
+        - User Authentication
+      summary: Login user
+      description: This endpoint will log user in
+      operationId: logIn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+      responses:
+        "200":
+          description: Successful Operation
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+# User details
+  /auth/admin/{id}:
+    get:
+      tags:
+        - User Authentication
+      # summary: Admin Page
+      description: This will get admin details upon successful login
+      operationId: admin
+      security:
+        - bearerAuth: []
+      summary: Get a user by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the user to get
+      responses:
+        "200":
+          description: successful operation
+        "401":
+          description: Unathorized
+          
+# Upload Post
+  /blog/{id}:
+    post:
+      tags:
+        - Blog
+      summary: Upload post 
+      description: This endpoint will upload user post
+      operationId: upload post
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the loggedin user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Blog"
+      responses:
+        "201":
+          description: successful operation
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+  
+  # Get all users
+  /auth/users:
+    get:
+      tags:
+        - User Authentication
+      summary: Fetch All users
+      description: This will get all registered users on the system
+      operationId: users
+      responses:
+        "200":
+          description: successful operation
+        "401":
+          description: Unathorized
+          
+  # Get all posts
+  /blog:
+    get:
+      tags:
+        - Blog
+      summary: Get posts
+      description: This will fetch all posts
+      operationId: fetch posts
+      responses:
+        "200":
+          description: successful operation
+# Get single post
+  /blog/{blogId}:
+    get:
+      tags:
+        - Blog
+      summary: Get single post
+      description: This will fetch single post
+      operationId: fetch single post
+      parameters:
+        - in: path
+          name: blogId
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the blog post
+      responses:
+        "200":
+          description: successful operation
+        "401":
+          description: Unathorized
+# Update post
+  /blog/{postId}:
+    patch:
+      tags:
+        - Blog
+      summary: Update post
+      description: This will update post
+      operationId: update post
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: postId
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the blog post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Blog"
+      responses:
+        "200":
+          description: successful operation
+        "401":
+          description: Unathorized
+# Delete post           
+  /blog/{blog_id}:
+    delete:
+      tags:
+        - Blog
+      summary: Delete post
+      description: This will delete post
+      operationId: delete post
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: blog_id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the blog post to delete
+      responses:
+        "200":
+          description: successful operation
+        "401":
+          description: Unathorized
+
+components:
+  securitySchemes:
+    bearerAuth: 
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    SignUp:
+      type: object
+      required: 
+        - username
+        - email
+        - password
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        confirm:
+          type: string
+      xml:
+        name: signUp
+    Login:
+      type: object
+      required: 
+        - email
+        - password
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      xml:
+        name: logIn
+    Blog:
+      type: object
+      required: 
+        - title
+        - story
+        - tag
+      properties:
+        title:
+          type: string
+        story:
+          type: string
+        tag:
+          type: string
+      xml:
+        name: blog
