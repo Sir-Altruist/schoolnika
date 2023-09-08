@@ -10,10 +10,8 @@ info:
 
   version: 1.0.0
 servers:
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/Altruistic/Schoolnika/1.0.0
-  - url: https://schoolnika-jzku.onrender.com/api
+  - description: SwaggerHub API
+    url: https://schoolnika-jzku.onrender.com/api
 tags:
   - name: User Authentication
     description: Endpoints for user authentication and authorization
@@ -135,6 +133,21 @@ paths:
       summary: Get posts
       description: This will fetch all posts
       operationId: fetch posts
+      parameters:
+        - in: query
+          name: skip
+          type: integer
+          required: false
+          default: 0
+          minimum: 0
+          description: The number of items to skip before starting to collect the result set.
+        - in: query
+          name: limit
+          type: integer
+          required: false
+          default: 10
+          minimum: 1
+          description: The number of items to return.
       responses:
         "200":
           description: successful operation
