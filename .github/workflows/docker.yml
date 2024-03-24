@@ -22,8 +22,7 @@ jobs:
 
     - name: print credentials
       run: |
-        echo "$REPO_NAME"
-        echo "$DOCKER_IMAGE"
+        echo "$REPO_NAME:$DOCKER_IMAGE"
       shell: bash
       # uses: docker/login-action@v3
       # run: |
